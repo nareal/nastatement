@@ -1,6 +1,6 @@
 # nastatement
 
-This is a quarto extension to provide a PDF template for a short statement letter. 
+This is a [Quarto](https://quarto.org/) extension to provide a PDF template for a short statement letter. 
 
 ## Installation
 
