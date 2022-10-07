@@ -1,0 +1,6 @@
+*.html
+*.pdf
+*_files/
+*.fdb_latexmk
+
+/.luarc.json

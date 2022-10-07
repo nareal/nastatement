@@ -1,0 +1,293 @@
+\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,a4paper,$for(classoption)$$classoption$$sep$,$endfor$]{letter}
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{bera}
+$endif$
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[utf8]{inputenc}
+$if(euro)$
+  \usepackage{eurosym}
+$endif$
+\else % if luatex or xelatex
+$if(mathspec)$
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{unicode-math}
+  \fi
+$else$
+  \usepackage{unicode-math}
+$endif$
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+$for(fontfamilies)$
+  \newfontfamily{$fontfamilies.name$}[$fontfamilies.options$]{$fontfamilies.font$}
+$endfor$
+$if(euro)$
+  \newcommand{\euro}{€}
+$endif$
+$if(mainfont)$
+    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
+$endif$
+$if(mathfont)$
+$if(mathspec)$
+  \ifxetex
+    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \else
+    \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \fi
+$else$
+  \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+$endif$
+$endif$
+$if(CJKmainfont)$
+    \usepackage{xeCJK}
+    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+$endif$
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
+\usepackage{geometry}
+\geometry{a4paper, top=2cm, bottom=3cm, left=2cm, right=2cm}
+$endif$
+$if(lang)$
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+$if(babel-lang)$
+\babelprovide[main,import]{$babel-lang$}
+$endif$
+$for(babel-otherlangs)$
+\babelprovide[import]{$babel-otherlangs$}
+$endfor$
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\usepackage[useregional,showdow]{datetime2}
+\DTMlangsetup[$lang$]{abbr}
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+$endif$
+\usepackage{graphicx}
+$if(graphics)$
+\usepackage{grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+$if(indent)$
+$else$
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+$endif$
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(subparagraph)$
+$else$
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+$endif$
+$if(dir)$
+\ifxetex
+  % load bidi as late as possible as it modifies e.g. graphicx
+  $if(latex-dir-rtl)$
+  \usepackage[RTLdocument]{bidi}
+  $else$
+  \usepackage{bidi}
+  $endif$
+\fi
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \TeXXeTstate=1
+  \newcommand{\RL}[1]{\beginR #1\endR}
+  \newcommand{\LR}[1]{\beginL #1\endL}
+  \newenvironment{RTL}{\beginR}{\endR}
+  \newenvironment{LTR}{\beginL}{\endL}
+\fi
+$endif$
+
+\usepackage{color,hyperref,url,fontawesome}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+
+\newsavebox{\letterlogo}
+\newsavebox{\letterfooter}
+\newsavebox{\letterfrom}
+
+$if(logofilepath)$
+\sbox{\letterlogo}{\hbox{\includegraphics[]{$logofilepath$}}}
+$else$
+\sbox{\letterlogo}{\hbox{\includegraphics[]{_extensions/nastatement/um-eeg}}}
+$endif$
+
+\newlength{\junkw}
+
+\makeatletter
+\def\ps@eeg{\begin{textblock}{8}(2,1.5)
+\usebox{\letterlogo}
+\end{textblock}
+\begin{textblock}{6}(15,1.7)
+\usebox{\letterfrom}
+\end{textblock}
+\begin{textblock}{10}(2,27.2)\usebox{\letterfooter}\end{textblock}\def\thepage{}}
+
+\@ifundefined{closing}{}{%
+\renewcommand*{\closing}[1]{
+  \par%
+  \vspace{4\parskip}%
+  {\@date\par}%
+  \vspace{2\parskip}%
+  #1\par\nobreak}}
+\makeatother
+
+\newcommand{\stitle}[1]{%
+  \thispagestyle{eeg}%
+  {\centering \sffamily\color[gray]{0.2}{\Large\textbf{#1}\par\nobreak}}
+  \vspace{4\parskip}}
+
+
+\def\section#1{\vspace{0.3cm}\par{\textsf{\bfseries\Large #1}}\vspace*{0.02cm}\par}
+\def\subsection#1{\vspace{0.3cm}\par{\textsf{\bfseries\large #1}}\vspace*{0.02cm}\par} %}
+
+% Spacing
+\RequirePackage{setspace}
+
+% Fix href problems
+\def\href#1{}
+
+
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\sbox{\letterfrom}{\parbox{10cm}{\fontsize{10}{12}\sffamily\color[gray]{0.4}
+$if(fromname)$
+{\large\textbf{$fromname$}}\\
+$endif$
+$if(fromtitle)$
+$fromtitle$\\[0.2cm]
+$endif$
+\begin{tabular}{@{}ll@{}}
+  $if(fromWWW)$
+    \faGlobe       & $fromWWW$\\
+  $endif$
+  $if(fromemail)$
+    \faEnvelope   & $fromemail$\\
+  $endif$
+  $if(fromphone)$
+    \faPhone     & $fromphone$
+  $endif$
+\end{tabular}}}
+
+
+$if(fromaddress)$
+\sbox{\letterfooter}{\parbox{10cm}{\fontsize{9}{11}\sffamily\color[gray]{0.4}{$fromaddress$}}}
+$endif$
+
+$if(date)$
+\date{$date$}
+$else$
+\date{\today}
+$endif$
+
+\begin{document}
+$if(lang)$
+\selectlanguage{$babel-lang$}
+$endif$
+\sf
+$for(include-before)$
+$include-before$
+$endfor$
+\begin{letter}{}
+\setstretch{1}
+%\vspace*{2cm}
+$if(title)$
+\stitle{$title$}
+\setstretch{$spacing$}
+$endif$
+$body$
+\closing{
+  $if(closing)$
+  $closing$\\[0.5cm]
+  $endif$
+  $if(fromname)$
+  $fromname$
+  $endif$
+}
+\end{letter}
+
+$for(include-after)$
+$include-after$
+$endfor$
+\end{document}

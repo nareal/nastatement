@@ -1,0 +1,25 @@
+---
+format: 
+  nastatement-pdf:
+    title: "To whom it may concern"
+    fromname: "Nelson Areal"
+    fromtitle: Associate Professor
+    fromWWW: https://nelsonareal.net
+    fromemail: nareal@eeg.uminho.pt
+    fromphone: +351 253 601 923
+    fromaddress: |
+                 | School of Economics and Management
+                 | University of Minho
+                 | Campus de Gualtar
+                 | 4710-057 Braga - Portugal
+    closing: Best regards,
+    spacing: 1.4
+    sansfont: NewsGotT
+    lang: en-GB # pt-PT
+    babel-lang: british # portuguese
+    #date: Thursday, 18 October 2022
+    #logofilepath:  um-eeg
+    #keep-tex: true
+---
+
+I hearby declare \dots
