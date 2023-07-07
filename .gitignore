@@ -3,5 +3,8 @@
 *_files/
 *.fdb_latexmk
 !_extensions/nastatement/*.pdf
-
 /.luarc.json
+_quarto.yaml
+template.fdb_latexmk
+!docs/*.pdf
+/.quarto/
