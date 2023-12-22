@@ -50,7 +50,7 @@ format:
                  | Universe
     closing: Best regards,
     spacing: 1.4
-    sansfont: NewsGotT
+    sansfont: Helvetica # NewsGotT
     lang: en-GB # pt-PT
     babel-lang: british # portuguese
     #date: Thursday, 18 October 2022
