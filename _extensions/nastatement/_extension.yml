@@ -1,6 +1,6 @@
 title: Statement letter
 autor: Nelson Areal
-version: 1.0.4
+version: 1.0.5
 contributes:
   format:
     pdf: 
