@@ -52,7 +52,7 @@ format:
                  | Universe
     closing: Best regards,
     spacing: 1.4
-    sansfont: Arial # NewsGotT
+    #sansfont: NewsGotT # Make sure you select a font installed in your system
     lang: en-GB # pt-PT
     babel-lang: british # portuguese
     #date: Thursday, 18 October 2022

@@ -8,3 +8,4 @@ _quarto.yaml
 template.fdb_latexmk
 /.quarto/
 docs
+_extensions/nastatement/.auctex-auto
