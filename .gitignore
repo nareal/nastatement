@@ -6,5 +6,5 @@
 /.luarc.json
 _quarto.yaml
 template.fdb_latexmk
-!docs/*.pdf
 /.quarto/
+docs
