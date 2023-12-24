@@ -1,5 +1,7 @@
 # nastatement
 
+![GitHub Action Status](https://img.shields.io/github/actions/workflow/status/nareal/nastatement/publish.yml)
+
 This is a [Quarto](https://quarto.org/) extension to provide a PDF template for a short statement letter. 
 
 ## Installation
@@ -50,7 +52,7 @@ format:
                  | Universe
     closing: Best regards,
     spacing: 1.4
-    sansfont: Helvetica # NewsGotT
+    sansfont: Arial # NewsGotT
     lang: en-GB # pt-PT
     babel-lang: british # portuguese
     #date: Thursday, 18 October 2022
@@ -60,4 +62,4 @@ format:
 
 ## Example 
 
-Here is the source code of the template: [template.qmd](template.qmd) and the [rendered PDF file](https://nareal.github.io/nastatement/template.pdf).
+Here is the source code of the template: [template.qmd](template.qmd) and the [rendered PDF file](https://nareal.github.io/nastatement/).
