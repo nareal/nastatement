@@ -14,7 +14,7 @@ format:
                  | 4710-057 Braga - Portugal
     closing: Best regards,
     spacing: 1.4
-    sansfont: Arial # NewsGotT
+    sansfont: Roboto # NewsGotT
     lang: en-GB # pt-PT
     babel-lang: british # portuguese
     #date: Thursday, 18 October 2022

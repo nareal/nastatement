@@ -23,10 +23,9 @@ jobs:
         run: |
           quarto --version
 
-      - name: Install fonts
+      - name: add TeX deps
         run: |
-         echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
-         apt-get install -y ttf-mscorefonts-installer
+          tinytex::tlmgr_install(pkgs = "roboto")
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
