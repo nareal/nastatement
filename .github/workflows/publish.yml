@@ -23,6 +23,11 @@ jobs:
         run: |
           quarto --version
 
+      - name: Install fonts
+        run: |
+         echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
+         apt-get install -y ttf-mscorefonts-installer
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
