@@ -184,13 +184,17 @@ $endif$
 \newsavebox{\letterfooter}
 \newsavebox{\letterfrom}
 
+% Logo size is controlled by the optional logowidth/logoheight variables.
+% keepaspectratio keeps the logo proportional when only one dimension is set.
+\newcommand{\naletterlogo}[1]{\sbox{\letterlogo}{\hbox{\includegraphics[$if(logowidth)$width=$logowidth$,$endif$$if(logoheight)$height=$logoheight$,$endif$keepaspectratio]{#1}}}}
+
 $if(logofilepath)$
-\sbox{\letterlogo}{\hbox{\includegraphics[]{$logofilepath$}}}
+\naletterlogo{$logofilepath$}
 $else$
 \IfFileExists{_extensions/nareal/nastatement/um-eeg.pdf}{
-    \sbox{\letterlogo}{\hbox{\includegraphics[]{_extensions/nareal/nastatement/um-eeg}}}
+    \naletterlogo{_extensions/nareal/nastatement/um-eeg}
   }{
-    \sbox{\letterlogo}{\hbox{\includegraphics[]{_extensions/nastatement/um-eeg}}}
+    \naletterlogo{_extensions/nastatement/um-eeg}
   }
 $endif$
 

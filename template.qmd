@@ -19,6 +19,8 @@ format:
     babel-lang: british # portuguese
     #date: Thursday, 18 October 2022
     #logofilepath:  um-eeg
+    #logowidth: 5cm   # logo width, e.g. 5cm or 0.3\textwidth
+    #logoheight: 2cm  # logo height; set either or both (aspect ratio is kept)
     #keep-tex: true
 ---
 

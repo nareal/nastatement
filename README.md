@@ -57,8 +57,14 @@ format:
     babel-lang: british # portuguese
     #date: Thursday, 18 October 2022
     #logofilepath:  um-eeg
+    #logowidth: 5cm   # logo width, e.g. 5cm or 0.3\textwidth
+    #logoheight: 2cm  # logo height; set either or both (aspect ratio is kept)
     #keep-tex: true
 ```
+
+Use `logowidth` and/or `logoheight` to size the logo. Any LaTeX length
+works (`5cm`, `40mm`, `0.3\textwidth`, ...). If you set only one, the
+aspect ratio is preserved; if you set neither, the logo keeps its natural size.
 
 ## Example 
 
